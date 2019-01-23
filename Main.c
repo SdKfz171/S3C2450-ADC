@@ -19,8 +19,9 @@
 #define FREQ 1000000
 
 void ADC_Init(){
-    uint32_t Prescaler = (PCLK / FREQ) - 1;
-    rADCCON = 0x4C48;
+    uint8_t Prescaler = (PCLK / FREQ) - 1;
+	rADCCON = (1 << 14) | (Prescaler << 6) | (1 << 3);
+    //rADCCON = 0x4C48;
     rADCMUX = 0x0;
     rADCCON = 0x1;
 }
@@ -60,7 +61,6 @@ void delay_ms(int ms){
 
 void Main(){
     Uart_Init(115200);
-    timer0_init();
     ADC_Init();
 
     while(1){

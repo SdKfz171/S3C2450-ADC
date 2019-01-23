@@ -16,7 +16,7 @@ TOPDIR =$(PWD)
 #TOOLPATH = /opt/CodeSourcery/Sourcery_G++_Lite
 TOOLPATH = /root/arm-2011.03
 
-SRCS	= Main.c 
+SRCS	= Main.c Uart.c
 ASRCS	= s3c2450_startup.S 
 
 OBJS	= ${SRCS:.c=.o} ${ASRCS:.S=.o}
